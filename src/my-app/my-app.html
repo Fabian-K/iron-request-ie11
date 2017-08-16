@@ -1,0 +1,46 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="my-app">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+
+        <iron-ajax
+                auto
+                url="http://ip.jsontest.com/"
+                handle-as="json"
+                last-response="{{response}}">
+
+        </iron-ajax>
+
+        <h2>Hello [[prop1]]!</h2>
+        <p>Response: [[response.ip]]</p>
+    </template>
+
+    <script>
+        /**
+         * @customElement
+         * @polymer
+         */
+        class MyApp extends Polymer.Element {
+            static get is() {
+                return 'my-app';
+            }
+
+            static get properties() {
+                return {
+                    prop1: {
+                        type: String,
+                        value: 'my-app'
+                    }
+                };
+            }
+        }
+
+        window.customElements.define(MyApp.is, MyApp);
+    </script>
+</dom-module>
