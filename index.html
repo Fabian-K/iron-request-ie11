@@ -9,6 +9,12 @@
 
     <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
 
+    <script src="/src/es6-promise.auto.min.js"></script>
+
+    <script>
+        window.addEventListener('WebComponentsReady', ES6Promise.polyfill);
+    </script>
+
     <link rel="import" href="/src/my-app/my-app.html">
 </head>
 <body>
